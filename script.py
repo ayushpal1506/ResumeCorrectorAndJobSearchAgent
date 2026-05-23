@@ -8,11 +8,13 @@ from dotenv import load_dotenv
 load_dotenv()
 api_key = os.getenv("ANTHROPIC_API_KEY")
 
+
+
 if not api_key:
-    raise ValueError("ANTHROPIC_API_KEY not found in environment variables")
 
-os.environ["OTEL_SDK_DISABLED"] = "true" # Disables the telemetry error
+    raise ValueError("ANTHROPIC_API_KEY not found")
 
+os.environ["OTEL_SDK_DISABLED"] = "true"
 
 my_llm = LLM(
     model="claude-haiku-4-5-20251001",
@@ -57,6 +59,7 @@ from crewai_tools import SerperDevTool
 
 def run_job_search_crew(state: AgentState):
 
+    os.environ["SERPER_API_KEY"] = "c683fb2c3628044f9a417edf2480cd7599a7bbb4"
     
 
     search_tool = SerperDevTool()
