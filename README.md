@@ -77,20 +77,42 @@ ResumeCorrectorAndJobSearchAgent/
 └── .env
 
 
+## 🛠️ Installation & Setup
+
+This project uses **CrewAI**, **LangChain**, and **TensorFlow**. Due to cross-dependency tracking rules within deep learning frameworks (especially on Apple Silicon M-series chips), please follow these setup instructions carefully.
+
+### 📋 Prerequisites
+
+* **Python Version:** **Python 3.12** is highly recommended. 
+  * *Note:* Avoid Python 3.13 for now, as several core underlying ML libraries (like older PyArrow and TensorFlow dependencies) will fail to compile from source.
+* **Operating System:** macOS (Intel/Apple Silicon), Linux, or Windows.
+
+
 ⚙️ Installation
 1️⃣ Clone the repository
     git clone https://github.com/ayushpal1506/ResumeCorrectorAndJobSearchAgent.git
     cd ResumeCorrectorAndJobSearchAgent
 
-2️⃣ Create virtual environment
-    python -m venv venv
+2. Create a Python 3.12 Virtual Environment
+Ensure you are explicitly targeting Python 3.12 when creating your environment sandbox:
+On macOS / Linux:
+Bash
+# If python3.12 isn't your default, point directly to its binary path
+python3.12 -m venv venv
+source venv/bin/activate
+On Windows:
+Bash
+python -m venv venv
+.\venv\Scripts\activate
 
-Activate it:
-        Mac/Linux: source venv/bin/activate
-        Windows : venv\Scripts\activate
+Upgrade Core Build Tools
+Before installing the requirements, update your environment's packaging tools to ensure smoother wheel compilations:
+Bash
+pip install --upgrade pip setuptools wheel
+
 3️⃣ Install dependencies
 
-pip install -r requirements.txt
+pip install -r requirements.txt --use-deprecated=legacy-resolver
 
 🔑 Environment Variables
 
