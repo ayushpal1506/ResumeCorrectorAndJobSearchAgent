@@ -99,10 +99,13 @@ On macOS / Linux:
 Bash
 # If python3.12 isn't your default, point directly to its binary path
 python3.12 -m venv venv
+
 source venv/bin/activate
+
 On Windows:
 Bash
 python -m venv venv
+
 .\venv\Scripts\activate
 
 Upgrade Core Build Tools
